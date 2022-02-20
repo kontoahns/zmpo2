@@ -1,0 +1,60 @@
+﻿@model PracaZaliczeniowa_MVC.Models.MovieModel
+
+@{
+    ViewData["Title"] = "Szczegóły seansu";
+    ViewData["cancelled"] = "seans odwołany";
+}
+
+<div class="container">
+    <div class="row mb-2">
+        <div class="col-12">
+            <div class="text-center">
+                <h1 class="display-4 mb-4">
+                    SEANS
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="container px-4 py-5" id="featured-3">
+            @if (@Model.cancelled == 1)
+            {
+                <div class="alert alert-danger">Przepraszamy, <strong>@ViewData["cancelled"]</strong>.<br> Prosimy wybrać inny film z naszej oferty.</div>
+            }
+            <h2 class="pb-2 border-bottom text-center">@Html.DisplayFor(model => model.name)</h2>
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-4">
+              <div class="feature col">
+                <div class="feature-icon bg-primary bg-gradient">
+                  <svg class="bi" width="1em" height="1em"></svg>
+                </div>
+                <h4 class="text-center">Sala</h4>
+                <p class="text-center h5">@Html.DisplayFor(model => model.room)</p>
+              </div>
+
+              <div class="feature col">
+                <div class="feature-icon bg-primary bg-gradient">
+                  <svg class="bi" width="1em" height="1em"></svg>
+                </div>
+                <h4 class="text-center">Ocena filmu</h4>
+                <p class="text-center h5">@Html.DisplayFor(model => model.rating) / 6</p>
+              </div>
+              <div class="feature col">
+                <div class="feature-icon bg-primary bg-gradient">
+                  <svg class="bi" width="1em" height="1em"></svg>
+                </div>
+                <h4 class="text-center">Godzina rozpoczęcia</h4>
+                <p class="text-center h5">@Html.DisplayFor(model => model.start)</p>
+              </div>
+              <div class="feature col">
+                <div class="feature-icon bg-primary bg-gradient">
+                    <svg class="bi" width="1em" height="1em"></svg>
+                </div>
+                <h4 class="text-center">Godzina zakończenia</h4>
+                <p class="text-center h5">@Html.DisplayFor(model => model.end)</p>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
